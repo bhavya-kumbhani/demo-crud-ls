@@ -1,0 +1,83 @@
+// components/Form.scss
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+
+  div {
+    margin-bottom: 10px;
+
+    .gender-wrapper {
+      display: flex;
+      gap: 20px;
+
+      .item-container {
+        display: flex;
+        gap: 5px;
+      }
+    }
+
+    .text-err {
+      color: red;
+      font-size: 12px;
+    }
+
+    label {
+      font-weight: bold;
+      display: flex;
+      /* Added to align the radio buttons and labels */
+      align-items: center;
+
+      /* Added to align the radio buttons and labels */
+
+
+      input[type="radio"] {
+        margin-right: 5px;
+        /* Added spacing between radio button and label */
+        -webkit-appearance: none;
+        /* Remove default styles */
+        -moz-appearance: none;
+        appearance: none;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        border: 2px solid #ccc;
+        outline: none;
+        cursor: pointer;
+      }
+
+      input[type="radio"]:checked {
+        border-color: #324c61;
+        background-color: #324c61;
+      }
+
+      input[type="radio"]:checked::before {
+        content: '\2022';
+        /* Bullet symbol as the radio button */
+        display: block;
+        text-align: center;
+        line-height: 14px;
+        color: white;
+      }
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  }
+
+  .btn-submit {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+}
