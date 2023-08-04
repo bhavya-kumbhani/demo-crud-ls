@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import Form from '../../components/Form';
 import List from '../../components/List';
-
+import "./Home.scss"
 
 const Home = () => {
     const [data, setData] = useState([]);
@@ -43,8 +43,8 @@ const Home = () => {
     };
 
     return (
-        <div>
-            <h1>CRUD Application</h1>
+        <div className='home-container'>
+            <h1 className='header-conatiner'>CRUD Application</h1>
             <Form onSubmit={handleSubmit} initialData={editItem} />
             <List data={data} onDelete={handleDelete} onEdit={handleEdit} />
         </div>

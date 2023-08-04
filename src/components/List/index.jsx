@@ -29,8 +29,8 @@ const List = ({ data, onDelete, onEdit }) => {
               <td>{item.hobbies}</td>
               <td>{item.dob}</td>
               <td>
-                <button onClick={() => onEdit(item)}>Edit</button>
-                <button onClick={() => onDelete(item.email)}>Delete</button>
+                <button className='edit-btn' onClick={() => onEdit(item)}>Edit</button>
+                <button className='delete-btn' onClick={() => onDelete(item.email)}>Delete</button>
               </td>
             </tr>
           ))}

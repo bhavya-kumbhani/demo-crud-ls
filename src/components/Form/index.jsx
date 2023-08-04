@@ -1,8 +1,9 @@
 // components/Form.js
 import React, { useState, useEffect } from 'react';
 import './Form.scss';
-import Input from '../Input';
 import moment from 'moment/moment';
+import EnhancedRadio from '../HOC/RadioInputs';
+import EnhancedInput from '../HOC/InputCustom';
 
 const Form = ({ onSubmit, initialData }) => {
 
@@ -64,67 +65,69 @@ const Form = ({ onSubmit, initialData }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <Input label="First Name:" type="text" name="firstname" value={formData.firstname || ''} onChange={handleChange} error={errors.firstname} />
-            </div>
-            <div>
-                <Input label="Last Name:" type="text" name="lastname" value={formData.lastname || ''} onChange={handleChange} error={errors.lastname} />
-            </div>
-            <div>
-                <Input label="Email:" type="email" name="email" value={formData.email || ''} onChange={handleChange} error={errors.email} />
-            </div>
-            <div>
-                <Input label="Phone No:" type="number" name="phoneno" value={formData.phoneno || ''} onChange={handleChange} error={errors.phoneno} />
-            </div>
-            <div>
-                <div className='gender-wrapper'>
-                    <div className='item-container'>
-                        <label>Gender:</label>
-                    </div>
-                    <div className='item-container'>
-                        <Input
-                            label="Male"
-                            type="radio"
-                            name="gender"
-                            value="male"
-                            checked={formData.gender === 'male'}
-                            onChange={handleChange}
-                            className="checkmark"
-                        />
-                    </div>
-                    <div className='item-container'>
-                        <Input
-                            label="Female"
-                            type="radio"
-                            name="gender"
-                            value="female"
-                            checked={formData.gender === 'female'}
-                            onChange={handleChange}
-                            className="checkmark"
-                        />
-                    </div>
-                    <div className='item-container'>
-                        <Input
-                            label="Other"
-                            type="radio"
-                            name="gender"
-                            value="other"
-                            checked={formData.gender === 'other'}
-                            onChange={handleChange}
-                        />
-                    </div>
+        <div className='form-container'>
+            <form onSubmit={handleSubmit}>
+                <div>
+                    <EnhancedInput placeholder="Enter your firstname" label="First Name:" type="text" name="firstname" value={formData.firstname || ''} onChange={handleChange} error={errors.firstname} />
                 </div>
-                <span className='text-err'>{errors.gender}</span>
-            </div>
-            <div>
-                <Input label="Hobbies:" type="text" name="hobbies" value={formData.hobbies || ''} onChange={handleChange} error={errors.hobbies} />
-            </div>
-            <div>
-                <Input label="Date of Birth:" type="date" name="dob" value={formData.dob || ''} onChange={handleChange} max={todayDate} />
-            </div>
-            <button type="submit" className='btn-submit'>Submit</button>
-        </form>
+                <div>
+                    <EnhancedInput placeholder="Enter your lastname" label="Last Name:" type="text" name="lastname" value={formData.lastname || ''} onChange={handleChange} error={errors.lastname} />
+                </div>
+                <div>
+                    <EnhancedInput placeholder="Enter your email" label="Email:" type="email" name="email" value={formData.email || ''} onChange={handleChange} error={errors.email} />
+                </div>
+                <div>
+                    <EnhancedInput placeholder="Enter your phone number" label="Phone No:" type="number" name="phoneno" value={formData.phoneno || ''} onChange={handleChange} error={errors.phoneno} />
+                </div>
+                <div>
+                    <div className='gender-wrapper'>
+                        <div className='item-container'>
+                            <label>Gender:</label>
+                        </div>
+                        <div className='item-container'>
+                            <EnhancedRadio
+                                label="Male"
+                                type="radio"
+                                name="gender"
+                                value="male"
+                                checked={formData.gender === 'male'}
+                                onChange={handleChange}
+                                className="checkmark"
+                            />
+                        </div>
+                        <div className='item-container'>
+                            <EnhancedRadio
+                                label="Female"
+                                type="radio"
+                                name="gender"
+                                value="female"
+                                checked={formData.gender === 'female'}
+                                onChange={handleChange}
+                                className="checkmark"
+                            />
+                        </div>
+                        <div className='item-container'>
+                            <EnhancedRadio
+                                label="Other"
+                                type="radio"
+                                name="gender"
+                                value="other"
+                                checked={formData.gender === 'other'}
+                                onChange={handleChange}
+                            />
+                        </div>
+                    </div>
+                    <span className='text-err'>{errors.gender}</span>
+                </div>
+                <div>
+                    <EnhancedInput placeholder="Enter your hobbies" label="Hobbies:" type="text" name="hobbies" value={formData.hobbies || ''} onChange={handleChange} error={errors.hobbies} />
+                </div>
+                <div>
+                    <EnhancedInput placeholder="Enter your birthdate" label="Date of Birth:" type="date" name="dob" value={formData.dob || ''} onChange={handleChange} max={todayDate} />
+                </div>
+                <button type="submit" className='btn-submit'>Submit</button>
+            </form>
+        </div>
     );
 };
 

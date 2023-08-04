@@ -1,83 +1,100 @@
 // components/Form.scss
-form {
-  display: flex;
-  flex-direction: column;
-  max-width: 400px;
-  margin: 0 auto;
 
-  div {
-    margin-bottom: 10px;
+// Define variables for reusability and easy customization
+$primary-color: #1e383f;
+$error-color: red;
+$border-color: #ccc;
 
-    .gender-wrapper {
-      display: flex;
-      gap: 20px;
+.form-container {
+  margin-bottom: 20px;
 
-      .item-container {
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: 456px;
+    margin: 0 auto;
+    background-color: #BEE8E4;
+    padding: 10px 25px;
+    border-radius: 10px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+
+    div {
+      margin-bottom: 10px;
+
+      .gender-wrapper {
         display: flex;
-        gap: 5px;
+        gap: 20px;
+
+        .item-container {
+          display: flex;
+          gap: 5px;
+        }
+      }
+
+      .text-err {
+        color: $error-color;
+        font-size: 12px;
+      }
+
+      label {
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+
+        input[type="radio"] {
+          margin-right: 5px;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          border: 2px solid $border-color;
+          outline: none;
+          cursor: pointer;
+
+          &:checked {
+            border-color: $primary-color;
+            background-color: $primary-color;
+          }
+
+          &:checked::before {
+            content: '\2022';
+            display: block;
+            text-align: center;
+            line-height: 14px;
+            color: white;
+          }
+        }
+      }
+
+      input,
+      select {
+        width: 95%;
+        padding: 10px;
+        border: 1px solid $border-color;
+        border-radius: 4px;
+        font-size: 16px;
+
+        &:focus {
+          border-color: $primary-color;
+          box-shadow: 0 0 5px rgba($primary-color, 0.5);
+        }
       }
     }
 
-    .text-err {
-      color: red;
-      font-size: 12px;
-    }
-
-    label {
-      font-weight: bold;
-      display: flex;
-      /* Added to align the radio buttons and labels */
-      align-items: center;
-
-      /* Added to align the radio buttons and labels */
-
-
-      input[type="radio"] {
-        margin-right: 5px;
-        /* Added spacing between radio button and label */
-        -webkit-appearance: none;
-        /* Remove default styles */
-        -moz-appearance: none;
-        appearance: none;
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        border: 2px solid #ccc;
-        outline: none;
-        cursor: pointer;
-      }
-
-      input[type="radio"]:checked {
-        border-color: #324c61;
-        background-color: #324c61;
-      }
-
-      input[type="radio"]:checked::before {
-        content: '\2022';
-        /* Bullet symbol as the radio button */
-        display: block;
-        text-align: center;
-        line-height: 14px;
-        color: white;
-      }
-    }
-
-    input,
-    select {
-      width: 100%;
-      padding: 5px;
-      border: 1px solid #ccc;
+    .btn-submit {
+      background-color: $primary-color;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px 0;
+      cursor: pointer;
       border-radius: 4px;
-    }
-  }
 
-  .btn-submit {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 10px 0;
-    cursor: pointer;
-    border-radius: 4px;
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
   }
 }

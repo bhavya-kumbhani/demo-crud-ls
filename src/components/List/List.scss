@@ -19,12 +19,15 @@ table {
   
     button {
       margin-right: 5px;
-      background-color: #4CAF50;
+      background-color: #1e383f;
       color: white;
       border: none;
       padding: 5px 10px;
       cursor: pointer;
       border-radius: 4px;
+    }
+    .delete-btn{
+      background-color: #ff1010;
     }
   }
   
